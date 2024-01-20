@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import MovieList from "./Components/MovieList"
+
+import MovieDisplay from "./Components/MovieDisplay"
+
+
+const App = ()=>{
+
+  const [selectedMovie,setSelectedMovie] = useState("")
+
+
+    return (
+      <div style={{
+        display:"flex",
+        justifyContent:"space-around"
+         }}
+      >
+          <MovieList updateMovie={setSelectedMovie}/>
+          <MovieDisplay selectedMovie={selectedMovie}/>
+      </div>   
+      
+    )
 }
 
-export default App;
+
+export default App
